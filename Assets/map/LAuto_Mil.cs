@@ -18,7 +18,7 @@ public class LAuto_Mil : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        wp = new Vector3[wpsize];
+      /*  wp = new Vector3[wpsize];
         wps = new GameObject[wpsize];
         Cam = GameObject.FindGameObjectWithTag("Cam");
         iden = Cam.GetComponent<Identification>();       
@@ -32,14 +32,14 @@ public class LAuto_Mil : MonoBehaviour {
         for (int j = 0; j < wp.Length; j++)
         {
             wp[j] = wps[j].transform.position;           
-        }
+        }*/
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookpoint = wp[i];
+       /* Vector3 lookpoint = wp[i];
         lookpoint.y = transform.position.y;
         transform.LookAt(lookpoint);
         
@@ -61,7 +61,7 @@ public class LAuto_Mil : MonoBehaviour {
         if (Vector3.Distance(transform.position, wp[i]) < 2f && i!=wp.Length+1)
         {
             i++;
-        }        
+        }    */    
         
     }
 }

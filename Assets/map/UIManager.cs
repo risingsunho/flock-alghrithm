@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-        if (dd.value==0) //종대
+      /*  if (dd.value==0) //종대
         {
             iden.obstacleseen = true;
             iden.turnnelseen = false;
@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
                  fm.isolationRange = 10f;
                  fm.manual = false;
                  fm.speed = fm.speed * 1.5f;
-                 fm.gapwithleader = 5f;*/
+                 fm.gapwithleader = 5f;//
             }
         }       
         else if (la.i == 3) //원래대로
@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
                 fm.manual = false;              
             }
            
-        }       
+        }    */   
 
     }
     void Spread()

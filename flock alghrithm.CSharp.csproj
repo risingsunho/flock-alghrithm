@@ -188,7 +188,6 @@
     <Compile Include="Assets\map\flocking_mil.cs" />
     <Compile Include="Assets\map\followerCam.cs" />
     <Compile Include="Assets\map\textEditor.cs" />
-    <Compile Include="Assets\tttest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
