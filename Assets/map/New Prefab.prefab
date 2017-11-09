@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114504836005152752}
   - component: {fileID: 114066368296773970}
   m_Layer: 0
-  m_Name: controller
+  m_Name: New Prefab
   m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   boids: []
   prefab: {fileID: 1087475926835388, guid: 8d8c1a4eaf9d7c448b8798fbbce10c6b, type: 2}
   flockSize: 8
-  target: {fileID: 0}
+  leader: {fileID: 0}
 --- !u!114 &114066368296773970
 MonoBehaviour:
   m_ObjectHideFlags: 1
