@@ -20,6 +20,7 @@ public class BridgeSocket : MonoBehaviour
     }
 
     public static point position, rotation;
+    public static bool start = false;
     public float speed = 1;
 
     void Start()
@@ -33,13 +34,16 @@ public class BridgeSocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 startposition = transform.position;
-        Vector3 destination = new Vector3(position.x,position.y,position.z);
-        Quaternion startrotation = transform.rotation;
-        Quaternion desiredrotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
+        if (start)
+        {
+            Vector3 startposition = transform.position;
+            Vector3 destination = new Vector3(position.x, position.y, position.z);
+            Quaternion startrotation = transform.rotation;
+            Quaternion desiredrotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
 
-        transform.position = Vector3.Slerp(startposition,destination,Time.fixedDeltaTime*speed); 
-        transform.rotation = Quaternion.Slerp(startrotation, desiredrotation, Time.fixedDeltaTime*speed);
+            transform.position = Vector3.Slerp(startposition, destination, Time.fixedDeltaTime * speed);
+            transform.rotation = Quaternion.Slerp(startrotation, desiredrotation, Time.fixedDeltaTime * speed);
+        }
     }
 
     IEnumerator AsyncCoroutine()
@@ -185,17 +189,20 @@ public class BridgeSocket : MonoBehaviour
 
             // JSONIFY
             string data = Encoding.UTF8.GetString(state.buffer, 0, bytesRead);
+
+            start = true;
+
             Debug.Log("Data: " + data);
             string[] splitt = data.Split('\n');
-            foreach (var s in splitt) Debug.Log("splitt: " + s);
+            //foreach (var s in splitt) ;//Debug.Log("splitt: " + s);
             string[] values = splitt[1].Split('\t');
-            foreach (var value in values) Debug.Log("value: " + value);
-            position.x = (float)Double.Parse(values[0]);
-            position.y = (float)Double.Parse(values[1]);
-            position.z = (float)Double.Parse(values[2]);
-            rotation.x = (float)Double.Parse(values[3]);
-            rotation.y = (float)Double.Parse(values[4]);
-            rotation.z = (float)Double.Parse(values[5]);
+            foreach (var value in values) //Debug.Log("value: " + value);
+            position.z = (float)Double.Parse(values[0])*10+ 2600.9f;
+            position.x = (float)Double.Parse(values[1])*10+ 1105.1f;
+            position.y = (float)Double.Parse(values[2])*10+ 161.91f;
+            rotation.z = (float)Double.Parse(values[3]);
+            rotation.x = (float)Double.Parse(values[4]);
+            rotation.y = (float)Double.Parse(values[5]);
 
             if (Encoding.Default.GetString(state.buffer, 0, bytesRead).Equals("exit"))
             {
